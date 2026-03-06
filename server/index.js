@@ -1,0 +1,33 @@
+//create server
+import express from "express";
+import dotenv from "dotenv";
+import connectDb from "./config/connectDb.js";
+import authRouter from "./routes/auth.route.js";
+import userRouter from "./routes/user.route.js";
+import interviewRouter from "./routes/interview.routes.js";
+
+dotenv.config();
+import cors from "cors";
+import cookieParser from "cookie-parser";
+
+const app = express();
+app.use(cors({
+    origin: "http://localhost:5173",
+    credentials: true
+}));
+const PORT = process.env.PORT || 6000;
+
+//middleware
+app.use(express.json());
+app.use(cookieParser());
+
+//routes
+app.use("/api/auth", authRouter);
+app.use("/api/user", userRouter);
+app.use("/api/interview", interviewRouter);
+
+//listen
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+    connectDb();
+});
