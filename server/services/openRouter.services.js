@@ -28,7 +28,9 @@ export const askAi = async (messages) => {
 
         return content;
     } catch (error) {
-        console.error("OpenRouter Error:", error.response?.data || error.message);
+        if (error.response?.status === 401 || error.response?.status === 403) {
+            throw new Error("OpenRouter Authentication Failed: Please check your API key and credits.");
+        }
         throw new Error("Failed to get response from AI");
     }
 }

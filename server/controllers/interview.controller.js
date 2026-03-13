@@ -1,6 +1,6 @@
 import fs from "fs";
 import * as pdfjsLib from "pdfjs-dist/legacy/build/pdf.mjs";
-import { askAi } from "../services/openRouter.services.js";
+import { askAi } from "../services/gemini.services.js";
 import Interview from "../models/interview.model.js";
 import User from "../models/user.model.js";
 
@@ -13,7 +13,10 @@ export const analyzeResume = async (req, res) => {
         const filepath = req.file.path;
         const fileBuffer = await fs.promises.readFile(filepath);
         const uint8Array = new Uint8Array(fileBuffer);
-        const pdf = await pdfjsLib.getDocument({ data: uint8Array }).promise;
+        const pdf = await pdfjsLib.getDocument({
+            data: uint8Array,
+            verbosity: 0 // Suppress internal PDF.js warnings like "TT: undefined function"
+        }).promise;
 
         let resumeText = "";
         for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
@@ -229,7 +232,7 @@ export const submitAnswer = async (req, res) => {
     try {
         const { interviewId, questionIndex, answer, timeTaken } = req.body;
 
-        if (!interviewId || !questionIndex || !answer || !timeTaken) {
+        if (interviewId === undefined || questionIndex === undefined || answer === undefined || timeTaken === undefined) {
             return res.status(400).json({ message: "All fields are required" });
         }
 
@@ -409,5 +412,68 @@ export const finishInterview = async (req, res) => {
     } catch (error) {
         console.error("Error in finishInterview:", error);
         return res.status(500).json({ message: `failed to finish interview ${error}` });
+    }
+}
+
+
+export const getMyInterviews = async (req, res) => {
+    try {
+        const interviews = await Interview.find({ userId: req.userId }).sort({ createdAt: -1 }).select("role experience mode finalScore status createdAt");
+
+        return res.status(200).json(interviews);
+    } catch (error) {
+        console.error("Error in getMyInterviews:", error);
+        return res.status(500).json({ message: `failed to get my interviews ${error}` });
+    }
+}
+
+export const getInterviewReport = async (req, res) => {
+    try {
+        const { interviewId } = req.params;
+
+        if (!interviewId) {
+            return res.status(400).json({ message: "Interview ID is required" });
+        }
+
+        const interview = await Interview.findById(interviewId);
+
+        if (!interview) {
+            return res.status(404).json({ message: "Interview not found" });
+        }
+
+        const totalQuestions = interview.questions.length;
+
+        let totalConfidence = 0;
+        let totalCommunication = 0;
+        let totalCorrectness = 0;
+
+        interview.questions.forEach(q => {
+            totalConfidence += q.confidence;
+            totalCommunication += q.communication;
+            totalCorrectness += q.correctness;
+        });
+
+        const avgConfidence = totalQuestions > 0 ? totalConfidence / totalQuestions : 0;
+
+        const avgCommunication = totalQuestions > 0 ? totalCommunication / totalQuestions : 0;
+
+        const avgCorrectness = totalQuestions > 0 ? totalCorrectness / totalQuestions : 0;
+
+        return res.status(200).json({
+            confidence: Number(avgConfidence.toFixed(1)),
+            communication: Number(avgCommunication.toFixed(1)),
+            correctness: Number(avgCorrectness.toFixed(1)),
+            questionWiseScore: interview.questions.map((q) => ({
+                question: q.question,
+                score: q.score || 0,
+                feedback: q.feedback || "",
+                confidence: q.confidence || 0,
+                communication: q.communication || 0,
+                correctness: q.correctness || 0,
+            })),
+        });
+    } catch (error) {
+        console.error("Error in getInterviewReport:", error);
+        return res.status(500).json({ message: `failed to get interview report ${error}` });
     }
 }
