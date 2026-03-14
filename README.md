@@ -4,52 +4,37 @@ InterviewIQ is a comprehensive, full-stack web application designed to help job 
 
 ## Key Technical Features
 
-- **AI-Driven Behavioral Interviews**: Utilizes the Google Gemini API to generate dynamic, role-specific interview questions and provide real-time interaction.
-- **Intelligent Resume Analysis**: Automated parsing of uploaded resumes to tailor interview questions based on the candidate's specific background and experience.
-- **Performance Analytics**: Visual representation of interview results using Recharts, offering insights into communication skills, technical knowledge, and overall performance.
-- **Automated Report Generation**: Generates detailed PDF performance reports using jsPDF, summarizing strengths and areas for improvement.
-- **Secure Authentication**: Integrated Firebase Authentication for secure user onboarding and session management.
-- **Responsive UI/UX**: A modern, fluid interface built with React and Tailwind CSS, optimized for various devices and screen sizes.
+- **AI-Driven Behavioral & Technical Interviews**: Utilizes the Google Gemini API to generate dynamic, role-specific interview questions and provide real-time interaction.
+- **Intelligent Resume Analysis**: Automated parsing of uploaded resumes to tailor interview questions based on the candidate's specific background and projects.
+- **Performance Analytics**: Visual representation of interview results using Recharts, offering granular insights into confidence, communication, and correctness.
+- **Automated Report Generation**: Generates detailed PDF performance reports using jsPDF.
+- **Secure Authentication**: Integrated Firebase Authentication for secure user onboarding.
+- **Premium Tier Access**: Stripe integration for purchasing interview credits and unlocking advanced features.
+- **Fully Responsive UI/UX**: A modern, fluid interface built with React, Tailwind CSS, and Framer Motion, optimized for mobile, tablet, and desktop devices.
+- **Cold-Start Mitigation**: Intelligent client-side server warm-up strategy to prevent backend sleep delays on free-tier hosting.
 
 ## Core Tech Stack
 
 ### Frontend
-- **React 19**: Modern UI library for building component-based interfaces.
-- **Vite**: Ultra-fast build tool and development server.
+- **React 19 & Vite**: Modern UI library and ultra-fast build tool.
 - **Tailwind CSS**: Utility-first CSS framework for rapid and consistent styling.
-- **Redux Toolkit**: Efficient state management for global application data.
-- **Framer Motion**: Smooth micro-animations and transitions.
+- **Redux Toolkit**: Efficient global state management.
+- **Framer Motion**: Smooth micro-animations and page transitions.
 
 ### Backend
-- **Node.js & Express**: Scalable server-side environment and web framework.
-- **MongoDB & Mongoose**: NoSQL database for flexible data storage and robust object modeling.
+- **Node.js & Express**: Scalable server-side environment.
+- **MongoDB & Mongoose**: NoSQL database for flexible data storage.
 - **Google Gemini API**: Advanced LLM integration for intelligent interview logic.
-- **Firebase SDK**: Secure authentication and backend services.
+- **Stripe API**: Secure payment processing.
 
-## Project Structure
-
-```bash
-InterviewIQ/
-├── client/          # Vite + React Frontend
-│   ├── src/
-│   │   ├── components/  # Reusable UI components
-│   │   ├── pages/       # Page-level components
-│   │   ├── redux/       # Global state management
-│   │   └── App.jsx      # Main application entry
-├── server/          # Node.js + Express Backend
-│   ├── config/      # Database and service configurations
-│   ├── controllers/ # Business logic for API endpoints
-│   ├── models/      # Mongoose schemas
-│   ├── routes/      # API route definitions
-│   └── index.js     # Server entry point
-```
-
-## Getting Started
+## Getting Started (Local Development)
 
 ### Prerequisites
 - Node.js (v18 or higher)
 - MongoDB account (local or Atlas)
 - Google Gemini API Key
+- Stripe Developer Account
+- Firebase Project
 
 ### Installation
 
@@ -64,12 +49,14 @@ InterviewIQ/
    cd server
    npm install
    ```
-   Create a `.env` file in the `server` directory and add:
+   Create a `.env` file referencing `.env.example` in the `server` directory:
    ```env
    PORT=8000
-   MONGO_URI=your_mongodb_connection_string
-   GEMINI_API_KEY=your_gemini_api_key
+   MONGO_URL=your_mongodb_connection_string
    JWT_SECRET=your_jwt_secret
+   GEMINI_API_KEY=your_gemini_api_key
+   CLIENT_URL=http://localhost:5173
+   STRIPE_SECRET_KEY=your_stripe_secret_key
    ```
    Start the server:
    ```bash
@@ -81,22 +68,33 @@ InterviewIQ/
    cd ../client
    npm install
    ```
-   Create a `.env` file in the `client` directory and add (if applicable):
+   Create a `.env` file referencing `.env.example` in the `client` directory:
    ```env
-   VITE_FIREBASE_API_KEY=your_firebase_api_key
-   # Add other Firebase config variables as needed
+   VITE_FIREBASE_APIKEY=your_firebase_api_key
+   VITE_STRIPE_PUBLISHABLE_KEY=your_stripe_publishable_key
+   VITE_SERVER_URL=http://localhost:8000
    ```
    Start the client:
    ```bash
    npm run dev
    ```
 
-## Usage
-- Register or Log in to your account.
-- Upload your resume for personalized analysis.
-- Initiate a "New Interview" session.
-- Respond to AI-generated questions via text or voice (if supported).
-- Review your performance report and track progress over time.
+## Production Deployment (Render & Vercel)
+
+The application is pre-configured for deployment on modern cloud platforms.
+
+### 1. Backend (Render)
+- Connect your GitHub repository to Render and create a **Web Service**.
+- Set the root directory to `server`.
+- Build Command: `npm install`
+- Start Command: `npm start`
+- Add all environment variables from your local `server/.env` (Update `CLIENT_URL` to your Vercel domain).
+
+### 2. Frontend (Vercel)
+- Import the repository to Vercel and select the `client` folder as the root.
+- The framework preset will automatically detect Vite.
+- Add your environment variables from `client/.env` (Update `VITE_SERVER_URL` to your Render domain).
+- The included `vercel.json` will automatically handle SPA routing to prevent 404 errors on page refresh.
 
 ## License
 This project is licensed under the ISC License.
