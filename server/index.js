@@ -27,6 +27,10 @@ app.use("/api/user", userRouter);
 app.use("/api/interview", interviewRouter);
 app.use("/api/payment", paymentRouter);
 
+app.get("/", (req, res) => {
+    res.send("InterviewIQ Server is running...");
+});
+
 //listen
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);

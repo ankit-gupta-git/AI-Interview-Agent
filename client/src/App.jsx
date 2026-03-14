@@ -27,6 +27,17 @@ function App() {
                 dispatch(setUserData(null))
             }
         }
+        
+        // Silent warm-up ping for Render backend cold starts
+        const warmupServer = async () => {
+            try {
+                await fetch(ServerUrl);
+            } catch (error) {
+                // Ignore errors, we just want to send the request
+            }
+        };
+
+        warmupServer();
         getUser()
     }, [dispatch])
 
