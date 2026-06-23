@@ -16,7 +16,7 @@ function Footer() {
                         <div className='bg-black p-2 rounded-xl shadow-lg'>
                             <RiRobot2Fill className='text-white text-xl' />
                         </div>
-                        <h2 className='font-black text-xl tracking-tight text-gray-900'>Interview<span className='text-emerald-500'>IQ</span></h2>
+                        <h2 className='font-black text-xl tracking-tight text-gray-900'>Horizon<span className='text-emerald-500'>.AI</span></h2>
                     </div>
                     <p className='text-gray-400 text-sm leading-relaxed max-w-[240px] font-medium'>
                         The professional frontier for AI-driven mock interviews and career-changing insights.
@@ -92,7 +92,7 @@ function Footer() {
             {/* Bottom Bar */}
             <div className='max-w-7xl mx-auto px-6 mt-24 pt-10 border-t border-gray-100/50 flex flex-col md:flex-row justify-between items-center gap-6 relative z-10'>
                 <p className='text-gray-400 text-[10px] font-black uppercase tracking-[0.2em]'>
-                    &copy; {new Date().getFullYear()} InterviewIQ.AI &bull; Advanced Career Logic
+                    &copy; {new Date().getFullYear()} Horizon.AI &bull; Advanced Career Logic
                 </p>
                 <div className='flex items-center gap-6'>
                     <p className='text-gray-300 text-[10px] font-black uppercase tracking-[0.2em] flex items-center gap-2'>

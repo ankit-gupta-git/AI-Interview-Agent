@@ -44,7 +44,7 @@ function InterviewReport() {
     const pdfWidth = pdf.internal.pageSize.getWidth();
     const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
     pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-    pdf.save(`InterviewIQ_Report_${id}.pdf`);
+    pdf.save(`Horizon_Report_${id}.pdf`);
   };
 
   if (loading) {

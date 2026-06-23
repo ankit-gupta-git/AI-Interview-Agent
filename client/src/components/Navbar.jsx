@@ -68,7 +68,7 @@ function Navbar() {
               <RiRobot2Fill className='text-white text-lg md:text-xl' />
             </div>
             <h1 className='font-black text-lg md:text-xl tracking-tight text-gray-900 group-hover:text-emerald-600 transition-colors'>
-              Interview<span className='text-emerald-500'>IQ</span>
+              Horizon<span className='text-emerald-500'>.AI</span>
             </h1>
           </div>
 

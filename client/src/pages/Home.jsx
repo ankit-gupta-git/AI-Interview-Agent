@@ -261,12 +261,12 @@ function Home() {
            </div>
         </section>
 
-        {/* Why Choose InterviewIQ Section */}
+        {/* Why Choose Horizon Section */}
         <section id="why-choose-us" className='w-full max-w-7xl mt-52 px-4 scroll-mt-24'>
           <div className='flex flex-col items-center mb-24 font-poppins'>
             <span className='text-emerald-500 text-[10px] font-black uppercase tracking-[0.2em] mb-4'>The Advantage</span>
             <h2 className='text-4xl md:text-5xl font-aeonik font-black text-gray-900 text-center leading-tight'>
-              Why Top Candidates <br />Choose InterviewIQ
+              Why Top Candidates <br />Choose Horizon
             </h2>
           </div>
 
@@ -329,7 +329,7 @@ function Home() {
                     Engineered for <br /><span className='text-emerald-500 italic'>Executive Maturity.</span>
                  </h2>
                  <p className='text-gray-500 text-base md:text-lg font-medium leading-relaxed font-poppins'>
-                    Move beyond entry-level preparation. InterviewIQ is built to bridge the gap between technical competency and the executive presence required for senior leadership roles.
+                    Move beyond entry-level preparation. Horizon is built to bridge the gap between technical competency and the executive presence required for senior leadership roles.
                  </p>
               </div>
               <div className='flex-1 order-1 md:order-2 container relative'>
@@ -422,7 +422,7 @@ function Home() {
                   role: "SDE II @ Meta"
                 },
                 {
-                  quote: "InterviewIQ helped me identify that I used too many filler words. Two weeks of practice later, my communication score hit 95%.",
+                  quote: "Horizon helped me identify that I used too many filler words. Two weeks of practice later, my communication score hit 95%.",
                   author: "David K.",
                   role: "Product Manager"
                 },
@@ -462,7 +462,7 @@ function Home() {
                  a: "Yes. We use Firebase for secure authentication and follow strict data encryption protocols. Your resumes and interview data are private and only accessible to you."
                },
                {
-                 q: "Can I use InterviewIQ for specific technical stacks?",
+                 q: "Can I use Horizon for specific technical stacks?",
                  a: "Absolutely. Whether it's React, System Design, Backend Engineering, or Data Science, our AI tailors the questions to the specific technical requirements of your domain."
                },
                {
@@ -484,7 +484,7 @@ function Home() {
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10" />
             <div className="relative z-10">
               <h2 className="text-3xl md:text-6xl font-aeonik font-black mb-6 md:mb-10 leading-tight">Ready to Ace Your Next Interview?</h2>
-              <p className="text-emerald-50 text-base md:text-xl font-poppins font-medium mb-8 md:mb-12 max-w-2xl mx-auto">Join thousands of candidates who are mastering their communication and technical skills with InterviewIQ.</p>
+              <p className="text-emerald-50 text-base md:text-xl font-poppins font-medium mb-8 md:mb-12 max-w-2xl mx-auto">Join thousands of candidates who are mastering their communication and technical skills with Horizon.</p>
               <button 
                 onClick={() => {
                    if (!userData) {

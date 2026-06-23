@@ -67,7 +67,7 @@ function Auth({ isModel = false, onClose }) {
                 <div className="bg-black text-white p-2.5 rounded-2xl shadow-xl shadow-black/10">
                     <RiRobot2Fill size={26} />
                 </div>
-                <h2 className="text-2xl font-black text-gray-900 tracking-tighter">Interview<span className='text-emerald-500'>IQ</span></h2>
+                <h2 className="text-2xl font-black text-gray-900 tracking-tighter">Horizon<span className='text-emerald-500'>.AI</span></h2>
             </motion.div>
 
             {/* Main Heading */}

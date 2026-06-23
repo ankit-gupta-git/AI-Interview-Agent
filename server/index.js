@@ -28,7 +28,7 @@ app.use("/api/interview", interviewRouter);
 app.use("/api/payment", paymentRouter);
 
 app.get("/", (req, res) => {
-    res.send("InterviewIQ Server is running...");
+    res.send("Horizon Server is running...");
 });
 
 //listen

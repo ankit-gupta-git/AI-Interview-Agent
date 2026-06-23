@@ -1,6 +1,6 @@
-# InterviewIQ: AI-Powered Interview Preparation Platform
+# Horizon: AI-Powered Interview Preparation Platform
 
-InterviewIQ is a comprehensive, full-stack web application designed to help job seekers master their interview skills through AI-driven simulations. By leveraging advanced natural language processing and performance analytics, the platform provides a realistic interview experience with actionable feedback.
+Horizon is a comprehensive, full-stack web application designed to help job seekers master their interview skills through AI-driven simulations. By leveraging advanced natural language processing and performance analytics, the platform provides a realistic interview experience with actionable feedback.
 
 ## Key Technical Features
 
@@ -41,7 +41,7 @@ InterviewIQ is a comprehensive, full-stack web application designed to help job 
 1. **Clone the repository:**
    ```bash
    git clone <repository-url>
-   cd InterviewIQ
+   cd Horizon
    ```
 
 2. **Backend Setup:**
