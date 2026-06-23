@@ -1,0 +1,183 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 620" width="100%" height="100%">
+  <!-- Definitions for arrows, markers, and shadows -->
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#64748b" />
+    </marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#0284c7" />
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#059669" />
+    </marker>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.04" />
+    </filter>
+  </defs>
+
+  <style>
+    .title { font-family: 'Inter', system-ui, -apple-system, sans-serif; font-weight: 800; fill: #0f172a; }
+    .subtitle { font-family: 'Inter', system-ui, -apple-system, sans-serif; font-weight: 500; fill: #64748b; }
+    .box-title { font-family: 'Inter', system-ui, -apple-system, sans-serif; font-weight: 700; }
+    .section-title { font-family: 'Inter', system-ui, -apple-system, sans-serif; font-weight: 600; fill: #334155; }
+    .text-main { font-family: 'Inter', system-ui, -apple-system, sans-serif; font-weight: 400; fill: #475569; }
+    .text-bold { font-family: 'Inter', system-ui, -apple-system, sans-serif; font-weight: 600; }
+    .arrow-text { font-family: 'Inter', system-ui, -apple-system, sans-serif; font-weight: 600; font-size: 10px; }
+  </style>
+
+  <!-- Background Canvas (Pure White as requested) -->
+  <rect width="1000" height="620" fill="#ffffff" />
+
+  <!-- HEADER BAR -->
+  <rect x="30" y="20" width="940" height="60" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" />
+  <text x="50" y="47" class="title" font-size="18">Horizon — AI-Powered Interview Preparation Platform</text>
+  <text x="50" y="66" class="subtitle" font-size="12">System Architecture &amp; End-to-End Data Workflow</text>
+  <rect x="800" y="32" width="150" height="36" rx="8" fill="#e0f2fe" stroke="#bae6fd" stroke-width="1" />
+  <text x="875" y="54" class="arrow-text" font-size="11" fill="#0369a1" text-anchor="middle">PRODUCTION STACK</text>
+
+  <!-- ==================== FRONTEND CLIENT BOX ==================== -->
+  <g filter="url(#shadow)">
+    <rect x="30" y="100" width="260" height="490" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" />
+    <text x="50" y="135" class="box-title" font-size="15" fill="#0284c7">React Client App (SPA)</text>
+    <text x="50" y="152" class="text-main" font-size="11">Vite Dev &amp; Vercel Deployment</text>
+    <line x1="50" y1="165" x2="270" y2="165" stroke="#e2e8f0" stroke-width="1.5" />
+
+    <!-- UI Components Panel -->
+    <rect x="50" y="180" width="220" height="135" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" />
+    <text x="62" y="202" class="section-title" font-size="12">UI Components &amp; Pages</text>
+    <text x="62" y="222" class="text-main" font-size="11">• Dashboard &amp; History</text>
+    <text x="62" y="240" class="text-main" font-size="11">• Resume Upload Screen</text>
+    <text x="62" y="258" class="text-main" font-size="11">• Active Interview Room (Timed)</text>
+    <text x="62" y="276" class="text-main" font-size="11">• Recharts Analytics View</text>
+    <text x="62" y="294" class="text-main" font-size="11">• Pricing &amp; Credit Checkout</text>
+
+    <!-- State & Client Services Panel -->
+    <rect x="50" y="330" width="220" height="105" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" />
+    <text x="62" y="352" class="section-title" font-size="12">State &amp; Integrations</text>
+    <text x="62" y="372" class="text-main" font-size="11">• Redux Toolkit (Global Store)</text>
+    <text x="62" y="390" class="text-main" font-size="11">• Firebase Auth Client SDK</text>
+    <text x="62" y="408" class="text-main" font-size="11">• jsPDF (Local PDF Generation)</text>
+
+    <!-- Tech Stack Summary -->
+    <rect x="50" y="450" width="220" height="125" rx="8" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1" />
+    <text x="62" y="475" class="section-title" font-size="11" fill="#475569">Frontend Stack:</text>
+    <text x="62" y="495" class="text-main" font-size="11">• React 19 / Vite</text>
+    <text x="62" y="513" class="text-main" font-size="11">• Tailwind CSS / Framer Motion</text>
+    <text x="62" y="531" class="text-main" font-size="11">• Recharts (Analytics Charts)</text>
+    <text x="62" y="549" class="text-main" font-size="11">• jsPDF Reporter</text>
+  </g>
+
+  <!-- ==================== FRONTEND <-> SERVER ARROWS ==================== -->
+  <!-- 1. Google Auth Token Send -->
+  <path d="M 290,145 L 420,145" stroke="#0284c7" stroke-width="1.5" marker-end="url(#arrow-blue)" />
+  <rect x="302" y="132" width="105" height="16" rx="4" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" />
+  <text x="355" y="144" class="arrow-text" fill="#0284c7" text-anchor="middle">1. Google Login Auth</text>
+
+  <!-- 2. Resume File Upload -->
+  <path d="M 290,215 L 420,215" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow)" />
+  <rect x="300" y="202" width="110" height="16" rx="4" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" />
+  <text x="355" y="214" class="arrow-text" fill="#475569" text-anchor="middle">2. Upload Resume PDF</text>
+
+  <!-- 3. Interview Actions -->
+  <path d="M 290,285 L 420,285" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow)" />
+  <rect x="296" y="272" width="118" height="16" rx="4" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" />
+  <text x="355" y="284" class="arrow-text" fill="#475569" text-anchor="middle">3. Submit Q&amp;A / Setup</text>
+
+  <!-- 4. Fetch Results / Credit Session -->
+  <path d="M 290,355 L 420,355" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow)" />
+  <rect x="302" y="342" width="106" height="16" rx="4" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" />
+  <text x="355" y="354" class="arrow-text" fill="#475569" text-anchor="middle">4. Report Info / Pay</text>
+
+  <!-- 5. Secure Server responses -->
+  <path d="M 420,490 L 290,490" stroke="#059669" stroke-width="1.5" marker-end="url(#arrow-green)" />
+  <rect x="305" y="477" width="100" height="16" rx="4" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" />
+  <text x="355" y="489" class="arrow-text" fill="#059669" text-anchor="middle">JSON Data Payload</text>
+
+  <!-- ==================== BACKEND EXPRESS SERVER BOX ==================== -->
+  <g filter="url(#shadow)">
+    <rect x="420" y="100" width="260" height="490" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" />
+    <text x="440" y="135" class="box-title" font-size="15" fill="#059669">Express Backend Server</text>
+    <text x="440" y="152" class="text-main" font-size="11">Node.js API Gate &amp; Controllers</text>
+    <line x1="440" y1="165" x2="660" y2="165" stroke="#e2e8f0" stroke-width="1.5" />
+
+    <!-- Middleware Subpanel -->
+    <rect x="440" y="180" width="220" height="85" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" />
+    <text x="452" y="202" class="section-title" font-size="12">Middlewares</text>
+    <text x="452" y="222" class="text-main" font-size="11">• Multer (Resume Parser Uploads)</text>
+    <text x="452" y="240" class="text-main" font-size="11">• JWT Session Validator (isAuth)</text>
+
+    <!-- Controllers Subpanel -->
+    <rect x="440" y="280" width="220" height="145" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" />
+    <text x="452" y="302" class="section-title" font-size="12">API Route Controllers</text>
+    <text x="452" y="322" class="text-main" font-size="11">• authController (JWT Issue)</text>
+    <text x="452" y="340" class="text-main" font-size="11">• userController (Profile &amp; Credits)</text>
+    <text x="452" y="358" class="text-main" font-size="11">• interviewController (AI Gen/Eval)</text>
+    <text x="452" y="376" class="text-main" font-size="11">• paymentController (Stripe Sessions)</text>
+    <text x="452" y="394" class="text-main" font-size="11">• Cold-Start Mitigation Ping</text>
+
+    <!-- Tech Stack Summary -->
+    <rect x="440" y="440" width="220" height="135" rx="8" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1" />
+    <text x="452" y="465" class="section-title" font-size="11" fill="#475569">Server Stack:</text>
+    <text x="452" y="485" class="text-main" font-size="11">• Node.js / Express.js</text>
+    <text x="452" y="503" class="text-main" font-size="11">• Mongoose (NoSQL Database ODM)</text>
+    <text x="452" y="521" class="text-main" font-size="11">• PDF.js-dist (Resume parsing)</text>
+    <text x="452" y="539" class="text-main" font-size="11">• Stripe &amp; Gemini Native SDKs</text>
+  </g>
+
+  <!-- ==================== SERVER <-> DATABASE / EXTERNAL ARROWS ==================== -->
+  <!-- Server -> DB -->
+  <path d="M 680,140 L 780,140" stroke="#15803d" stroke-width="1.5" marker-end="url(#arrow)" />
+  <text x="730" y="132" class="arrow-text" fill="#15803d" text-anchor="middle">CRUD Queries</text>
+
+  <!-- Server -> Firebase Auth Verification -->
+  <path d="M 680,360 L 780,360" stroke="#b45309" stroke-width="1.5" marker-end="url(#arrow)" />
+  <text x="730" y="352" class="arrow-text" fill="#b45309" text-anchor="middle">Token Verify</text>
+
+  <!-- Server -> Gemini API -->
+  <path d="M 680,445 L 780,445" stroke="#6b21a8" stroke-width="1.5" marker-end="url(#arrow)" />
+  <text x="730" y="437" class="arrow-text" fill="#6b21a8" text-anchor="middle">AI Evaluation</text>
+
+  <!-- Server -> Stripe API -->
+  <path d="M 680,530 L 780,530" stroke="#4c1d95" stroke-width="1.5" marker-end="url(#arrow)" />
+  <text x="730" y="522" class="arrow-text" fill="#4c1d95" text-anchor="middle">Payments API</text>
+
+  <!-- ==================== DATABASE BOX (MONGODB) ==================== -->
+  <g filter="url(#shadow)">
+    <rect x="780" y="100" width="190" height="150" rx="12" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.5" />
+    <text x="795" y="135" class="box-title" font-size="15" fill="#15803d">MongoDB Atlas</text>
+    <text x="795" y="152" class="text-main" font-size="11">Cloud Document DB</text>
+    <line x1="795" y1="165" x2="955" y2="165" stroke="#bbf7d0" stroke-width="1.5" />
+    
+    <text x="795" y="188" class="text-bold" font-size="11" fill="#166534">Collections / Schemas:</text>
+    <text x="795" y="208" class="text-main" font-size="11">• User (Credits, Session)</text>
+    <text x="795" y="226" class="text-main" font-size="11">• Interview (Logs, Scores)</text>
+  </g>
+
+  <!-- ==================== EXTERNAL SERVICES BOX ==================== -->
+  <g filter="url(#shadow)">
+    <rect x="780" y="265" width="190" height="325" rx="12" fill="#fefaf0" stroke="#fed7aa" stroke-width="1.5" />
+    <text x="795" y="295" class="box-title" font-size="15" fill="#7c2d12">External API Services</text>
+    <text x="795" y="312" class="text-main" font-size="11">Third-party integrations</text>
+    <line x1="795" y1="325" x2="955" y2="325" stroke="#fed7aa" stroke-width="1.5" />
+
+    <!-- Firebase Auth card -->
+    <rect x="795" y="338" width="160" height="60" rx="6" fill="#fffbeb" stroke="#fef3c7" stroke-width="1" />
+    <text x="805" y="358" class="text-bold" font-size="11" fill="#b45309">Firebase Auth SDK</text>
+    <text x="805" y="375" class="text-main" font-size="10">Google Sign-in Federated</text>
+    <text x="805" y="388" class="text-main" font-size="10">Identity Provider</text>
+
+    <!-- Gemini card -->
+    <rect x="795" y="413" width="160" height="75" rx="6" fill="#faf5ff" stroke="#f3e8ff" stroke-width="1" />
+    <text x="805" y="433" class="text-bold" font-size="11" fill="#6b21a8">Google Gemini API</text>
+    <text x="805" y="450" class="text-main" font-size="10">• Resume Parsing JSON</text>
+    <text x="805" y="465" class="text-main" font-size="10">• AI Q&amp;A Generation</text>
+    <text x="805" y="480" class="text-main" font-size="10">• Answers Scoring Engine</text>
+
+    <!-- Stripe card -->
+    <rect x="795" y="503" width="160" height="70" rx="6" fill="#f5f3ff" stroke="#ede9fe" stroke-width="1" />
+    <text x="805" y="523" class="text-bold" font-size="11" fill="#4c1d95">Stripe Gateway</text>
+    <text x="805" y="540" class="text-main" font-size="10">• Secure Payments Checkout</text>
+    <text x="805" y="555" class="text-main" font-size="10">• Credit Purchasing Tier</text>
+    <text x="805" y="568" class="text-main" font-size="10">• Webhook updates</text>
+  </g>
+</svg>
